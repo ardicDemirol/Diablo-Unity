@@ -88,7 +88,7 @@ public class PlayerOnClick : MonoBehaviour
             if(Physics.Raycast(ray,out hit))
             {
                 playerToPointDistance = Vector3.Distance(transform.position, hit.point);
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"));
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
                     if(playerToPointDistance >= 1.0f)
                     {
@@ -119,5 +119,21 @@ public class PlayerOnClick : MonoBehaviour
             playerMove.Set(0f, 0f, 0f);
             anim.SetFloat("Speed", 0f);
         }
+    }
+
+    public bool FinishedMovement
+    {
+        get { return finishedMovement; }
+        set { finishedMovement = value; }
+    }
+    public Vector3 targetPosition
+    {
+        get { return targetMovePoint; }
+        set { targetMovePoint = value; }
+    }
+    public bool CanMove
+    {
+        get { return canMove; }
+        set { canMove = value; }
     }
 }
