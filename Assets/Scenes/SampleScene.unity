@@ -938,7 +938,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 7e494b09767b19b4da33e7f982a5c516, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
@@ -3126,45 +3126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 0.3
   verticalSpeed: 0.3
---- !u!1 &1343177903 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 51828630782774162, guid: 0ca94bf6297715d448598881e060b690, type: 3}
-  m_PrefabInstance: {fileID: 285212002312166207}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1343177904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343177903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e14cb753ffae8914fac9c192fd23e75b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CoolDownIcon:
-  - {fileID: 968853247}
-  - {fileID: 977504601}
-  - {fileID: 1245962592}
-  - {fileID: 2065651993}
-  - {fileID: 820164692}
-  - {fileID: 795869032}
-  OutOfManaIcons: []
-  coolDownTime:
-  - 0.45
-  - 0.8
-  - 1.1
-  - 0.9
-  - 1
-  - 0.5
-  CooldownTimesList:
-  - 0.45
-  - 0.8
-  - 1.1
-  - 0.9
-  - 1
-  - 0.5
 --- !u!1 &1425327676
 GameObject:
   m_ObjectHideFlags: 0
@@ -3434,7 +3395,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 7e494b09767b19b4da33e7f982a5c516, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
@@ -4772,6 +4733,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: coolDownIcon.Array.data[0]
+      value: 
+      objectReference: {fileID: 968853247}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: coolDownIcon.Array.data[1]
+      value: 
+      objectReference: {fileID: 977504601}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: coolDownIcon.Array.data[2]
+      value: 
+      objectReference: {fileID: 1245962592}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: coolDownIcon.Array.data[3]
+      value: 
+      objectReference: {fileID: 2065651993}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: coolDownIcon.Array.data[4]
+      value: 
+      objectReference: {fileID: 820164692}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: coolDownIcon.Array.data[5]
+      value: 
+      objectReference: {fileID: 795869032}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: outOfManaIcons.Array.data[0]
+      value: 
+      objectReference: {fileID: 947848255}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: outOfManaIcons.Array.data[1]
+      value: 
+      objectReference: {fileID: 1265503197}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: outOfManaIcons.Array.data[2]
+      value: 
+      objectReference: {fileID: 288099210}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: outOfManaIcons.Array.data[3]
+      value: 
+      objectReference: {fileID: 1280916066}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: outOfManaIcons.Array.data[4]
+      value: 
+      objectReference: {fileID: 581184639}
+    - target: {fileID: 1343177904, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: outOfManaIcons.Array.data[5]
+      value: 
+      objectReference: {fileID: 1162292620}
     - target: {fileID: 49843115533484226, guid: 0ca94bf6297715d448598881e060b690, type: 3}
       propertyPath: m_RootOrder
       value: 1
