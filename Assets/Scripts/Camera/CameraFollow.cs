@@ -18,12 +18,6 @@ public class CameraFollow : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         targetHeight = Player.position.y + followHeight;
