@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7610690984303691918}
   - component: {fileID: 7610690984318897604}
   - component: {fileID: 7610690984318940260}
+  - component: {fileID: 5507840938413666270}
   m_Layer: 0
   m_Name: HammerVFX
   m_TagString: Untagged
@@ -4780,6 +4781,23 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5507840938413666270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7610690984304120994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e24d4d199014748acaa9235a340456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  radius: 1.2
+  damageCount: 10
 --- !u!1 &7610690984304120998
 GameObject:
   m_ObjectHideFlags: 0

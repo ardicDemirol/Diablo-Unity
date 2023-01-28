@@ -79,18 +79,22 @@ public class EnemyWaypointTracker1 : MonoBehaviour
         {
             if (distance >= attackDistance + 0.15f)
             {
-                agent.isStopped = false;
-                agent.speed = 3f;
-                anim.SetBool("Walk", true);
+                if(!anim.IsInTransition(0) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+                {
+                    anim.ResetTrigger("Attack");
+                    agent.isStopped = false;
+                    agent.speed = 3f;
+                    anim.SetBool("Walk", true);
 
-                agent.SetDestination(playerTarget.position);
+                    agent.SetDestination(playerTarget.position);
+                }
             }
             else if(distance <= attackDistance)
             {
                 agent.isStopped = true;
                 anim.SetBool("Walk", false);
                 agent.speed = 0f;
-                Vector3 targetPos = new Vector3(playerTarget.position.x, transform.position.y, playerTarget.position.x);
+                Vector3 targetPos = new Vector3(playerTarget.position.x, transform.position.y, playerTarget.position.z);
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetPos - transform.position),turnSpeed * Time.deltaTime);
                 if(currentAttackTime >= attackRate)

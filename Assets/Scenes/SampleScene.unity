@@ -505,7 +505,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230996512}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 17.99}
+  m_LocalPosition: {x: 0, y: 0, z: 15.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2313,7 +2313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027778791}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.6, y: 0, z: 23.88}
+  m_LocalPosition: {x: -3.49, y: 0, z: 25.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4313,7 +4313,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914645096}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.43, y: 0, z: 17.71}
+  m_LocalPosition: {x: 5.76, y: 0, z: 20.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4826,14 +4826,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2412160341672236679, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
-      propertyPath: m_StoppingDistance
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2507697898393109876, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2507697898393109876, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
       propertyPath: m_Name
       value: SKELETON
@@ -4881,10 +4873,6 @@ PrefabInstance:
     - target: {fileID: 2511147304695592136, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8022854975793893499, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
-      propertyPath: walkPoints.Array.size
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8022854975793893499, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
       propertyPath: walkPoints.Array.data[0]
