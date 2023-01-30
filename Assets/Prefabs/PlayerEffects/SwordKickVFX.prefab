@@ -4954,6 +4954,7 @@ GameObject:
   - component: {fileID: 5955702931493347733}
   - component: {fileID: 5955702931493247031}
   - component: {fileID: 1425785141576453035}
+  - component: {fileID: -1707005715802144915}
   m_Layer: 0
   m_Name: SwordKickVFX
   m_TagString: Untagged
@@ -9750,6 +9751,19 @@ MonoBehaviour:
     m_Bits: 128
   radius: 0.8
   damageCount: 10
+--- !u!114 &-1707005715802144915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5955702931474249973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b78edda3b9671a4c805fe38849fa16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2
 --- !u!1 &5955702931474249977
 GameObject:
   m_ObjectHideFlags: 0

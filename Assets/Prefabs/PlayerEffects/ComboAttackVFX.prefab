@@ -14245,6 +14245,7 @@ GameObject:
   - component: {fileID: 7386606764077496020}
   - component: {fileID: 7386606764077584244}
   - component: {fileID: 1474473960408618196}
+  - component: {fileID: -1959990581838570915}
   m_Layer: 0
   m_Name: ComboAttackVFX
   m_TagString: Untagged
@@ -18964,3 +18965,16 @@ MonoBehaviour:
     m_Bits: 128
   radius: 1.2
   damageCount: 10
+--- !u!114 &-1959990581838570915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7386606764096597940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b78edda3b9671a4c805fe38849fa16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2

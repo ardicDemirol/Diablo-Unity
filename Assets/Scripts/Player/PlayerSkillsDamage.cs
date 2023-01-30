@@ -9,14 +9,14 @@ public class PlayerSkillsDamage : MonoBehaviour
     public float damageCount = 10f;
 
     private EnemyHealth enemyHealth;
-    private bool collided;
+    protected bool collided;
 
     void Start()
     {
         
     }
 
-    void Update()
+    internal virtual void Update()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, radius,enemyLayer);
 
