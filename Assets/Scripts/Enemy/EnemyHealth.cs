@@ -5,12 +5,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [HideInInspector] private float currentHealth;
-
+    Animator anim;
     public float maxHealth = 100f;
 
     private void Awake()
     {
         currentHealth = maxHealth;
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -20,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        anim.SetTrigger("Hit");
         currentHealth-= amount;
     }
 }

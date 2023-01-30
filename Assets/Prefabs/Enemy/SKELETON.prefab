@@ -759,7 +759,9 @@ GameObject:
   - component: {fileID: 2511164049762682306}
   - component: {fileID: 2500009859017203632}
   - component: {fileID: 2493329071242709294}
-  m_Layer: 0
+  - component: {fileID: 6024261115807780592}
+  - component: {fileID: 5179326614258039222}
+  m_Layer: 8
   m_Name: SWORD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,6 +833,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6024261115807780592
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507603062529733226}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6993351, y: 0.2658722, z: 5.203821}
+  m_Center: {x: -0.07480233, y: -0.0032395252, z: 1.5262711}
+--- !u!114 &5179326614258039222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2507603062529733226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df771d8675563344aacfad74b8360b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2507613416799340400
 GameObject:
   m_ObjectHideFlags: 0

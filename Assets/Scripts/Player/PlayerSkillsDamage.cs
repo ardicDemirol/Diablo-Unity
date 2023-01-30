@@ -9,24 +9,19 @@ public class PlayerSkillsDamage : MonoBehaviour
     public float damageCount = 10f;
 
     private EnemyHealth enemyHealth;
-    private bool collided;
+    protected private bool colided;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
+    internal virtual void Update()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, radius,enemyLayer);
 
         foreach (Collider hit in hits) 
         {
             enemyHealth = hit.gameObject.GetComponent<EnemyHealth>();
-            collided = true;
+            colided = true;
 
         }
-        if (collided)
+        if (colided)
         {
             enemyHealth.TakeDamage(damageCount);
             enabled = false;

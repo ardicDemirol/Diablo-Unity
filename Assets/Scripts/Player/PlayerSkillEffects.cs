@@ -43,7 +43,8 @@ public class PlayerSkillEffects : MonoBehaviour
     {
         Vector3 pos = transform.position;
         pos.y = 1;
-        Instantiate(healSkill, pos, Quaternion.identity);
+        GameObject healClone = Instantiate(healSkill, pos, Quaternion.identity);
+        healClone.transform.SetParent(transform);
     }
     void SlashComboSkill()
     {

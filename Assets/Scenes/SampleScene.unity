@@ -4874,6 +4874,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6024261115807780592, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
+      propertyPath: m_Size.y
+      value: 0.47658917
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261115807780592, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
+      propertyPath: m_Center.x
+      value: -0.07480234
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261115807780592, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
+      propertyPath: m_Center.y
+      value: 0.018043103
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024261115807780592, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
+      propertyPath: m_Center.z
+      value: 1.5262711
+      objectReference: {fileID: 0}
     - target: {fileID: 8022854975793893499, guid: 802386265c4360d439f9dd1806b988f6, type: 3}
       propertyPath: walkPoints.Array.data[0]
       value: 
@@ -4990,6 +5006,10 @@ PrefabInstance:
     - target: {fileID: 51828630782774162, guid: 0ca94bf6297715d448598881e060b690, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 51828630782774162, guid: 0ca94bf6297715d448598881e060b690, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ca94bf6297715d448598881e060b690, type: 3}
