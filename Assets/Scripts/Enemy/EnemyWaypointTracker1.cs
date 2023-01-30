@@ -77,7 +77,7 @@ public class EnemyWaypointTracker1 : MonoBehaviour
         }
         else
         {
-            if (distance >= attackDistance + 0.15f && playerTarget.GetComponent<PlayerHealth>().currentHealth>0)
+            if (distance >= attackDistance + 0.15f)
             {
                 if(!anim.IsInTransition(0) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
                 {
@@ -89,7 +89,7 @@ public class EnemyWaypointTracker1 : MonoBehaviour
                     agent.SetDestination(playerTarget.position);
                 }
             }
-            else if(distance <= attackDistance && playerTarget.GetComponent<PlayerHealth>().currentHealth > 0)
+            else if(distance <= attackDistance)
             {
                 agent.isStopped = true;
                 anim.SetBool("Walk", false);

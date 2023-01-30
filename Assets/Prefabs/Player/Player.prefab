@@ -207,8 +207,7 @@ GameObject:
   - component: {fileID: 285212003655217246}
   - component: {fileID: 1343177904}
   - component: {fileID: 369929114}
-  - component: {fileID: 410020127995930900}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -377,20 +376,6 @@ MonoBehaviour:
   hammerSkillTransform: {fileID: 408769971}
   comboSkillTransform: {fileID: 2287354113787875130}
   slashTransform: {fileID: 347270118}
---- !u!114 &410020127995930900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 51828630782774162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1462ba5cba17cb148be1cbba0338df27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 0
-  maxHealth: 100
 --- !u!1 &51852890501143586
 GameObject:
   m_ObjectHideFlags: 0
