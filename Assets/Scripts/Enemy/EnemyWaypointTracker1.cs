@@ -25,7 +25,7 @@ public class EnemyWaypointTracker1 : MonoBehaviour
     private Vector3 nextDestination;
     private int index;
 
-    //health
+    EnemyHealth enemyHealth;
 
     private void Awake()
     {
@@ -33,6 +33,7 @@ public class EnemyWaypointTracker1 : MonoBehaviour
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         index = Random.Range(0,walkPoints.Length);
+        enemyHealth =  GetComponent<EnemyHealth>();
         if(walkPoints.Length > 0)
         {
             InvokeRepeating(nameof(Patrol),Random.Range(0,patrolTime),patrolTime);
@@ -47,7 +48,20 @@ public class EnemyWaypointTracker1 : MonoBehaviour
 
     void Update()
     {
-        MoveAndAttack();
+        if(enemyHealth.currentHealth > 0) { MoveAndAttack(); }
+        else
+        {
+            anim.ResetTrigger("Hit");
+            anim.SetBool("Death", true);
+            agent.enabled = false;
+            if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Death") &&
+                anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.95f)
+            {
+                Destroy(this.gameObject, 2f);
+            } 
+        }
+       
+        
     }
 
     void MoveAndAttack()

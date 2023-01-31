@@ -6,6 +6,7 @@ public class PlayerOnClick : MonoBehaviour
 {
     public float maxSpeed = 5f;
     public float turnSpeed = 15f;
+    public float attackRange = 2f;
 
     private Animator anim;
     private CharacterController Controller;
@@ -14,6 +15,8 @@ public class PlayerOnClick : MonoBehaviour
 
     private Vector3 playerMove = Vector3.zero;
     private Vector3 targetMovePoint = Vector3.zero;
+    private Vector3 targetAttackPoint = Vector3.zero;
+
 
     private float currentSpeed;
     private float playerToPointDistance;
@@ -21,8 +24,12 @@ public class PlayerOnClick : MonoBehaviour
     private float height;
 
     private bool canMove;
+    private bool canAttackMove = true;
     private bool finishedMovement = true;
     private Vector3 newMovePoint;
+    private Vector3 newAttackPoint;
+
+    private GameObject enemy;
 
 
     private void Awake()
@@ -34,24 +41,37 @@ public class PlayerOnClick : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
         CalculateHeight();
         CheckIfFinishedMovement();
-
+        AttackMove();
     }
 
+    void AttackMove()
+    {
+        if (canAttackMove)
+        {
+            targetAttackPoint = enemy.gameObject.transform.position;
+            newAttackPoint = new Vector3(targetAttackPoint.x, transform.position.y, targetAttackPoint.z);
+        }
+        if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack"))
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(newAttackPoint - transform.position), turnSpeed * Time.deltaTime);
+
+        }
+    }
     bool isGrounded()
     {
-        return collisionFlags == CollisionFlags.CollidedBelow ? true:false;
+        return collisionFlags == CollisionFlags.CollidedBelow ? true : false;
     }
 
     void CalculateHeight()
     {
-        if(isGrounded())
+        if (isGrounded())
         {
             height = 0f;
         }
@@ -85,33 +105,60 @@ public class PlayerOnClick : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if(Physics.Raycast(ray,out hit))
+            if (Physics.Raycast(ray, out hit))
             {
                 playerToPointDistance = Vector3.Distance(transform.position, hit.point);
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
-                    if(playerToPointDistance >= 1.0f)
+                    if (playerToPointDistance >= 1.0f)
                     {
                         canMove = true;
+                        canAttackMove = false;
                         targetMovePoint = hit.point;
                     }
                 }
+                else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Target"))
+                {
+                    enemy = hit.collider.gameObject.GetComponentInParent<EnemyWaypointTracker1>().gameObject;
+                    canMove = true;
+                    canAttackMove = true;
+
+                }
             }
         }
-
         if (canMove)
         {
             anim.SetFloat("Speed", 1.0f);
 
-            newMovePoint = new Vector3(targetMovePoint.x, transform.position.y, targetMovePoint.z);
+            if (!canAttackMove)
+            {
+                newMovePoint = new Vector3(targetMovePoint.x, transform.position.y, targetMovePoint.z);
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(newMovePoint - transform.position),turnSpeed * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(newMovePoint - transform.position), turnSpeed * Time.deltaTime);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(newAttackPoint - transform.position), turnSpeed * Time.deltaTime);
+            }
 
             playerMove = transform.forward * currentSpeed * Time.deltaTime;
 
-            if(Vector3.Distance(transform.position,newMovePoint) <= 0.6f)
+            if (Vector3.Distance(transform.position, newMovePoint) <= 0.6f && !canAttackMove)
             {
                 canMove = false;
+                canAttackMove = false;
+            }
+            else if (canAttackMove)
+            {
+                if (Vector3.Distance(transform.position, newAttackPoint) <= attackRange)
+                {
+                    playerMove.Set(0f, 0f, 0f);
+                    anim.SetFloat("Speed", 0f);
+                    targetAttackPoint = Vector3.zero;
+                    anim.SetTrigger("AttackMove");
+                    canAttackMove = false;
+                    canMove = false;
+                }
             }
         }
         else
