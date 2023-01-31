@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -10,10 +11,15 @@ public class EnemyHealth : MonoBehaviour
     public float maxHealth = 100f;
 
     [SerializeField] private Image enemyHealthBar;
+    private SphereCollider targetCollider;
+
+    public int ExpAmount = 10;
+    public static event Action<int> onDeath;
 
     private void Awake()
     {
         currentHealth = maxHealth;
+        targetCollider = GetComponentInChildren<SphereCollider>();
         anim = GetComponent<Animator>();
     }
 
@@ -32,10 +38,19 @@ public class EnemyHealth : MonoBehaviour
             anim.SetTrigger("Hit");
 
         }
-        if(currentHealth < 0)
+        if(currentHealth <= 0)
         {
             Canvas canvas =  enemyHealthBar.gameObject.GetComponentInParent<Canvas>();
-            canvas.gameObject.SetActive(false);
+            onDeath(ExpAmount);
+            if (targetCollider.gameObject.activeInHierarchy)
+            {
+                targetCollider.gameObject.SetActive(false);
+            }
+            if (canvas.gameObject.activeInHierarchy)
+            {
+                canvas.gameObject.SetActive(false);
+            }
+            
         }
     }
 }

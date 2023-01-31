@@ -41,7 +41,7 @@ public class PlayerOnClick : MonoBehaviour
 
     void Start()
     {
-
+      
     }
 
     void Update()
@@ -60,7 +60,7 @@ public class PlayerOnClick : MonoBehaviour
         }
         if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Basic Attack"))
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(newAttackPoint - transform.position), turnSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(newAttackPoint - transform.position), turnSpeed * 2 * Time.deltaTime);
 
         }
     }
