@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     private int level;
     private int expToNextLevel;
 
-    public int GetLevel { get { return level; } }
+    public int GetLevel { get { return level + 1; } }
 
     private void Awake()
     {
@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            
         }
         else
         {
@@ -49,6 +50,11 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(currentExp);
+        if(Input.GetKeyDown(KeyCode.Z)) 
+        {
+            AddExp(100);
+            Debug.Log(level);
+
+        }
     }
 }

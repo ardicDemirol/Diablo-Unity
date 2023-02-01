@@ -23,11 +23,6 @@ public class EnemyHealth : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        Debug.Log(currentHealth);
-    }
-
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;

@@ -17,21 +17,26 @@ public class PlayerSkillCast : MonoBehaviour
     public float[] coolDownTime;
     [Header("Mana Amounts")]
     public float[] skillManaAmounts;
+    [Header("Required level")]
+    public int[] skills;
 
     private bool faded;
     
     private int[] fadeImages = new int[] {0,0,0,0,0,0,};
     [HideInInspector] public List<float> CooldownTimesList = new List<float>();
     private List<float> manaAmountList = new List<float>();
+    private List<int> levelList = new List<int>();
 
     private Animator anim;
 
     private bool canAttack = true;
 
     private PlayerOnClick playerOnClick;
+    private LevelManager levelManager;
 
     private void Awake()
     {
+        levelManager = FindObjectOfType<LevelManager>();
         anim = GetComponent<Animator>(); 
         playerOnClick = GetComponent<PlayerOnClick>();
         manaBar = GameObject.Find("ManaOrb").GetComponent<Image>();
@@ -51,6 +56,10 @@ public class PlayerSkillCast : MonoBehaviour
         for (int i = 0; i < 6; i++)
         {
             manaAmountList.Add(skillManaAmounts[i]);
+        }
+        for (int i = 0; i < 6; i++)
+        {
+            levelList.Add(skills[i]);
         }
     }
 
@@ -76,7 +85,7 @@ public class PlayerSkillCast : MonoBehaviour
             totalMana += Time.deltaTime * manaRegenSpeed;
             manaBar.fillAmount = totalMana/100f;
         }
-        
+        CheckLevel();
         CheckMana();
         CheckToFade();
         CheckInput();
@@ -86,13 +95,17 @@ public class PlayerSkillCast : MonoBehaviour
     {
         for (int i = 0; i < coolDownIcon.Length; i++)
         {
-            if (fadeImages[i] == 1)
+            if(levelManager.GetLevel >= levelList[i])
             {
-                if (FadeAndWait(coolDownIcon[i], CooldownTimesList[i]))
+                if (fadeImages[i] == 1)
                 {
-                    fadeImages[i] = 0;
+                    if (FadeAndWait(coolDownIcon[i], CooldownTimesList[i]))
+                    {
+                        fadeImages[i] = 0;
+                    }
                 }
             }
+           
         }
     }
 
@@ -100,16 +113,30 @@ public class PlayerSkillCast : MonoBehaviour
     {
         for (int i = 0; i < outOfManaIcons.Length; i++)
         {
-            if (totalMana < manaAmountList[i])
+            if (levelManager.GetLevel >= levelList[i])
+            {
+                if (totalMana < manaAmountList[i])
+                {
+                    outOfManaIcons[i].gameObject.SetActive(true);
+                }
+                else
+                {
+                    outOfManaIcons[i].gameObject.SetActive(false);
+                }
+            }
+            
+        }
+    }
+
+    void CheckLevel()
+    {
+        for (int i = 0; i < outOfManaIcons.Length; i++)
+        {
+            if(levelManager.GetLevel < levelList[i])
             {
                 outOfManaIcons[i].gameObject.SetActive(true);
             }
-            else
-            {
-                outOfManaIcons[i].gameObject.SetActive(false);
-            }
-        }
-        
+        } 
     }
 
     void CheckInput()
@@ -124,7 +151,7 @@ public class PlayerSkillCast : MonoBehaviour
         }
 
         /// Skill Input
-        if (Input.GetKeyDown(KeyCode.Alpha1) && totalMana >= skillManaAmounts[0])
+        if (Input.GetKeyDown(KeyCode.Alpha1) && totalMana >= skillManaAmounts[0] && levelManager.GetLevel >= skills[0])
         {
             playerOnClick.targetPosition = transform.position;
             if(playerOnClick.FinishedMovement && fadeImages[0] != 1 && canAttack)
@@ -134,7 +161,7 @@ public class PlayerSkillCast : MonoBehaviour
                 anim.SetInteger("Attack",1);
             }
         }
-        else if(Input.GetKeyDown(KeyCode.Alpha2) && totalMana >= skillManaAmounts[1])
+        else if(Input.GetKeyDown(KeyCode.Alpha2) && totalMana >= skillManaAmounts[1] && levelManager.GetLevel >= skills[1])
         {
             playerOnClick.targetPosition = transform.position;
             if(playerOnClick.FinishedMovement && fadeImages[1] != 1 && canAttack)
@@ -144,7 +171,7 @@ public class PlayerSkillCast : MonoBehaviour
                 anim.SetInteger("Attack", 2);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && totalMana >= skillManaAmounts[2])
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && totalMana >= skillManaAmounts[2] && levelManager.GetLevel >= skills[2])
         {
             playerOnClick.targetPosition = transform.position;
             if (playerOnClick.FinishedMovement && fadeImages[2] != 1 && canAttack)
@@ -154,7 +181,7 @@ public class PlayerSkillCast : MonoBehaviour
                 anim.SetInteger("Attack", 3);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && totalMana >= skillManaAmounts[3])
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && totalMana >= skillManaAmounts[3] && levelManager.GetLevel >= skills[3])
         {
             playerOnClick.targetPosition = transform.position;
             if (playerOnClick.FinishedMovement && fadeImages[3] != 1 && canAttack)
@@ -164,7 +191,7 @@ public class PlayerSkillCast : MonoBehaviour
                 anim.SetInteger("Attack", 4);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5) && totalMana >= skillManaAmounts[4])
+        else if (Input.GetKeyDown(KeyCode.Alpha5) && totalMana >= skillManaAmounts[4] && levelManager.GetLevel >= skills[4])
         {
             playerOnClick.targetPosition = transform.position;
             if (playerOnClick.FinishedMovement && fadeImages[4] != 1 && canAttack)
@@ -174,7 +201,7 @@ public class PlayerSkillCast : MonoBehaviour
                 anim.SetInteger("Attack", 5);
             }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha6) && totalMana >= skillManaAmounts[5])
+        else if (Input.GetKeyDown(KeyCode.Alpha6) && totalMana >= skillManaAmounts[5] && levelManager.GetLevel >= skills[5])
         {
             playerOnClick.targetPosition = transform.position;
             if (playerOnClick.FinishedMovement && fadeImages[5] != 1 && canAttack)
