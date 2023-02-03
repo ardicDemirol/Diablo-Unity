@@ -97,7 +97,7 @@ public class Boss : MonoBehaviour
                 if(currentAttackTime >= attackRate)
                 {
                     anim.SetTrigger("Shoot");
-                    //Instantiate(fireBall, firePosition.position, Quaternion.identity);
+                    Instantiate(fireBall, firePosition.position, Quaternion.identity);
                     currentAttackTime = 0;
                     finishedAttacking = false;
                 }

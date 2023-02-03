@@ -9,22 +9,45 @@ public class PlayerSkillsDamage : MonoBehaviour
     public float damageCount = 10f;
 
     private EnemyHealth enemyHealth;
+    private PlayerHealth playerHealth;
     protected private bool colided;
 
     internal virtual void Update()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, radius,enemyLayer);
+        Collider[] hits = Physics.OverlapSphere(transform.position, radius, enemyLayer);
 
-        foreach (Collider hit in hits) 
+        foreach (Collider hit in hits)
         {
-            enemyHealth = hit.gameObject.GetComponent<EnemyHealth>();
-            colided = true;
-
-        }
-        if (colided)
-        {
-            enemyHealth.TakeDamage(damageCount);
-            enabled = false;
+            if (enemyLayer == (1 << LayerMask.NameToLayer("Enemy")))
+            {
+                enemyHealth = hit.gameObject.GetComponent<EnemyHealth>();
+                colided = true;
+            }
+            else if (enemyLayer == (1 << LayerMask.NameToLayer("Player")))
+            {
+                playerHealth = hit.gameObject.GetComponent<PlayerHealth>();
+                colided = true;
+            }
+            if (colided)
+            {
+                if (enemyLayer == (1 << LayerMask.NameToLayer("Enemy")))
+                {
+                    if(enemyHealth!= null)
+                    {
+                        enemyHealth.TakeDamage(damageCount);
+                        enabled = false;
+                    }
+                }
+                else if (enemyLayer == (1 << LayerMask.NameToLayer("Player")))
+                {
+                    if (enemyHealth != null)
+                    {
+                        playerHealth.TakeDamage(damageCount);
+                        enabled = false;
+                    }
+                        
+                }
+            }
         }
     }
 

@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour
     {
         currentExp += amount;
         expBar.fillAmount = (float)currentExp/expToNextLevel;
-        if (currentExp > expToNextLevel)
+        if (currentExp >= expToNextLevel)
         {
             level++;
             GameObject levelUpVFXClone = Instantiate(levelUpVFX,player.position,Quaternion.identity);
@@ -73,8 +73,6 @@ public class LevelManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Z)) 
         {
             AddExp(20);
-            Debug.Log(level);
-
         }
     }
 }
