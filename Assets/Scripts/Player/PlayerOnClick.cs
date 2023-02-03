@@ -119,7 +119,7 @@ public class PlayerOnClick : MonoBehaviour
                 }
                 else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Target"))
                 {
-                    enemy = hit.collider.gameObject.GetComponentInParent<EnemyWaypointTracker1>().gameObject;
+                    enemy = hit.collider.gameObject.GetComponentInParent<EnemyHealth>().gameObject;
                     canMove = true;
                     canAttackMove = true;
 
