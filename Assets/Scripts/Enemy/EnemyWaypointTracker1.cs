@@ -53,6 +53,7 @@ public class EnemyWaypointTracker1 : MonoBehaviour
         {
             anim.ResetTrigger("Hit");
             anim.SetBool("Death", true);
+            AudioManager.Instance.PlaySFX(5);
             agent.enabled = false;
             if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Death") &&
                 anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.95f)
@@ -114,6 +115,7 @@ public class EnemyWaypointTracker1 : MonoBehaviour
                 if(currentAttackTime >= attackRate)
                 {
                     anim.SetTrigger("Attack");
+                    AudioManager.Instance.PlaySFX(2);
                     currentAttackTime = 0f;
                 }
                 else

@@ -9,6 +9,7 @@ public class SceneManager : MonoBehaviour
     void Awake()
     {
         bossState = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossState>();
+        AudioManager.Instance.PlayGameMusic();
     }
 
     void Update()
@@ -21,5 +22,7 @@ public class SceneManager : MonoBehaviour
         {
             bossHealthBar.SetActive(true);
         }
+        
     }
+
 }

@@ -30,6 +30,8 @@ public class EnemyHealth : MonoBehaviour
 
         if(currentHealth > 0)
         {
+            if(this.gameObject.tag == "Boss") { AudioManager.Instance.PlaySFX(3); };
+            if(this.gameObject.tag == "Enemy") { AudioManager.Instance.PlaySFX(6); }
             anim.SetTrigger("Hit");
 
         }

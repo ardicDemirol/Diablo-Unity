@@ -41,6 +41,14 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Scream")) 
+        {
+            if (!AudioManager.Instance.sfx[10].isPlaying)
+            {
+                AudioManager.Instance.PlaySFX(10);
+
+            }
+        }
         if (finishedAttacking)
         {
             GetControl();
@@ -63,6 +71,7 @@ public class Boss : MonoBehaviour
             anim.SetBool("Death", true);
             targetCollider.enabled = false;
             bossDeath = true;
+            AudioManager.Instance.PlaySFX(7);
         }
         else
         {
@@ -97,6 +106,7 @@ public class Boss : MonoBehaviour
                 if(currentAttackTime >= attackRate)
                 {
                     anim.SetTrigger("Shoot");
+                    AudioManager.Instance.PlaySFX(0);
                     Instantiate(fireBall, firePosition.position, Quaternion.identity);
                     currentAttackTime = 0;
                     finishedAttacking = false;
@@ -117,7 +127,7 @@ public class Boss : MonoBehaviour
                 {
                     int index = Random.Range(1, 3);
                     anim.SetInteger("Attack", index);
-
+                    AudioManager.Instance.PlaySFX(9);
                     currentAttackTime = 0f;
                     finishedAttacking = false;
                 }
