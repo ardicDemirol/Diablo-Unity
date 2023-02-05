@@ -4797,8 +4797,8 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  radius: 1.2
-  damageCount: 10
+  radius: 1.5
+  damageCount: 18
 --- !u!114 &-7415502384980545842
 MonoBehaviour:
   m_ObjectHideFlags: 0

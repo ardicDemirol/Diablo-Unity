@@ -9750,7 +9750,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   radius: 0.8
-  damageCount: 10
+  damageCount: 25
 --- !u!114 &1889270814650578473
 MonoBehaviour:
   m_ObjectHideFlags: 0

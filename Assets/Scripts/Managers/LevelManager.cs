@@ -21,16 +21,15 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-            
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if(instance == null)
+        //{
+        //    instance = this;
+        //    DontDestroyOnLoad(gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
         level = 0;
         currentExp= 0;
         expToNextLevel = 100;

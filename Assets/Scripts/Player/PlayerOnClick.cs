@@ -39,10 +39,6 @@ public class PlayerOnClick : MonoBehaviour
         currentSpeed = maxSpeed;
     }
 
-    void Start()
-    {
-      
-    }
 
     void Update()
     {
@@ -122,7 +118,6 @@ public class PlayerOnClick : MonoBehaviour
                     enemy = hit.collider.gameObject.GetComponentInParent<EnemyHealth>().gameObject;
                     canMove = true;
                     canAttackMove = true;
-
                 }
             }
         }

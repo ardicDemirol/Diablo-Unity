@@ -18964,7 +18964,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   radius: 1.2
-  damageCount: 10
+  damageCount: 15
 --- !u!114 &1125584880657862825
 MonoBehaviour:
   m_ObjectHideFlags: 0

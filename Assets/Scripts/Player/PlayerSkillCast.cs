@@ -8,7 +8,7 @@ public class PlayerSkillCast : MonoBehaviour
     [Header("Mana Settings")]
     public float totalMana = 100f;
     public float manaRegenSpeed = 2f;
-    public Image manaBar;
+    private Image manaBar;
     [Header("CoolDown Icons")]
     public Image[] coolDownIcon;
     [Header("Out of Mana Icons")]

@@ -17,15 +17,6 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         healthImage = GameObject.Find("HealthOrb").GetComponent<Image>();
     }
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space)) { TakeDamage(10f); }
-    }
 
     public void TakeDamage(float amount)
     {

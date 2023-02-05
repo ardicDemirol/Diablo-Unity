@@ -21,6 +21,9 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = maxHealth;
         targetCollider = GetComponentInChildren<SphereCollider>();
         anim = GetComponent<Animator>();
+        if (this.gameObject.tag == "Boss") { maxHealth = UnityEngine.Random.Range(150, 200); };
+        if (this.gameObject.tag == "Enemy") { maxHealth = UnityEngine.Random.Range(60, 100); }
+
     }
 
     public void TakeDamage(float amount)
